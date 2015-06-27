@@ -5,27 +5,27 @@ class ComicsController < ApplicationController
     @comic = current_user.comics.new( comic_url: params[:comic_url],
                                       title: params[:title])
     if @comic.save
-      render 'new.json.jbuilder', status: :created
+      render 'create.json.jbuilder', status: :created
 
   def show_user_comic
     @comic = current_user.comics.find(params[:title])
-    render 'show.json.jbuilder', status: :ok
+    render 'show_user.json.jbuilder', status: :ok
   end
 
   def show_all_user_comics
     @comics = current_user.comics.order(created_at: :desc).page(params[:page])
     if @posts.any?
-      render 'user_comics.json.jbuilder', status: :ok
+      render 'show_all_comics.json.jbuilder', status: :ok
     else
       render json: { message: "This user does not have any comics." },
         status: :not_found
     end
   end
 
-  def all
+  def index
     @comics = Comic.order(created_at: :desc).page(params[:page])
     if @comics.any?
-      render 'all.json.jbuilder', status: :ok
+      render 'index.json.jbuilder', status: :ok
     else
       render json: { message: "There are no comics." },
         status: :not_found
