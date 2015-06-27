@@ -18,7 +18,7 @@ __ruby 2.1.5p273__
 `GET '/comics'`
 * [Show Comic](#show-Comic)
 `GET'/comic/title'`
-* [Create Comics](#create-comics)
+* [Create Comic](#create-comic)
 `POST '/comics/create'`
 * [Get All Of User's Comics](#get-all-of-user's-comics)
 `GET 'comics/user'`
@@ -26,9 +26,12 @@ __ruby 2.1.5p273__
 ### **Photos**
 * [Create Photo](#create-photo)
 `POST 'photos/create'`
-* [Get User's Photos](#get-user's-photos)
-`POST 'photos/user'`
-
+* [Get User Photos](#get-user-photos)
+`GET 'photos/user'`
+* [Get A User Photo](#get-a-user-photo)
+`GET 'photo/:id'`
+* [Get All Users' Photos](#get-all-users'-photos)
+`GET 'photos/users'`
 
 
 ### **Get All Users**
@@ -115,12 +118,14 @@ Response:
 
 Example success:  
 ```json
-{ "user":{"id":3,
-  "username":"JDrama2000",
-  "first_name":"Johnny",
-  "last_name":"Drama",
-  "email":"jdrama1@gmail.com",
-  "access_token":"bec50786aa082642fd9757845998f57d"}}
+{
+  "user": {
+    "id": 3,
+    "username": "TMcGraw1234",
+    "access_token": "908ab2d13e18b6d436c2908f83fe9adf",
+    "email": "TMcGraw@tiy.com"
+  }
+}
 ```
 Example failure:
 ```json
@@ -129,9 +134,9 @@ Example failure:
 
 
 
-### **Get Scoreboard**
+### **Get All Comics**
 
-`GET '/scoreboard'`
+`GET 'comics'`
 
 Params:
   * none
@@ -149,10 +154,10 @@ Example success:
 ```
 Example failure:
 ```json
-  {"errors": ["errors":["Error With Scoreboard"]]}
+  {"errors": ["errors":["Error"]]}
 ```
 
-### **Get All Posts**
+### **Show Comic**
 
 `GET '/posts'`
 
@@ -225,7 +230,7 @@ Example failure:
 ```
 
 
-### **Show Post**
+### **Create Comic**
 
 GET '/posts/:id'
 
@@ -253,7 +258,7 @@ Example failure:
 
 
 
-### **Create Post**
+### **Get All Of User's Comics**
 
 `POST '/posts'`
 
@@ -286,7 +291,7 @@ Example failure:
 
 
 
-### **Delete Post**
+### **Create Photo**
 
 `DELETE '/posts/:id'`
 
@@ -308,7 +313,54 @@ Example failure:
 
 
 
-### **Create Guess**
+### **Get User Photos**
+
+`POST 'posts/:id/guesses'`
+
+Params:
+  * guess: "string"
+
+Response:
+  Status Code: 201 if successful, 422 if unsuccessful
+
+Example success:  
+```json
+{ "user":{"id":2,
+  "guess":"A",
+  "point":1,
+  "user_id":3,
+  "post_id":6,
+  "access_token":"25a0eea82cd2fd34c34ddadc2447fb92"}}
+```
+Example failure:
+```json
+{ "message":"Access Token Not Found" }
+```
+
+### **Get A User Photo**
+
+`POST 'posts/:id/guesses'`
+
+Params:
+  * guess: "string"
+
+Response:
+  Status Code: 201 if successful, 422 if unsuccessful
+
+Example success:  
+```json
+{ "user":{"id":2,
+  "guess":"A",
+  "point":1,
+  "user_id":3,
+  "post_id":6,
+  "access_token":"25a0eea82cd2fd34c34ddadc2447fb92"}}
+```
+Example failure:
+```json
+{ "message":"Access Token Not Found" }
+```
+### **Get All Users' Photos**
 
 `POST 'posts/:id/guesses'`
 
