@@ -6,11 +6,6 @@ class ComicsController < ApplicationController
                                       title: params[:title])
     if @comic.save
       render 'new.json.jbuilder', status: :created
-    else
-    render json: { errors: @comic.errors.full_messages },
-        status: :unprocessable_entity
-    end
-  end
 
   def show_user_comic
     @comic = current_user.comics.find(params[:title])

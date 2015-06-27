@@ -35,5 +35,4 @@ class PhotosController < ApplicationController
         status: :not_found
     end
   end
-
 end
