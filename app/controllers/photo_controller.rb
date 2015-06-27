@@ -1,13 +1,10 @@
 class PhotosController < ApplicationController
-  before_action :authenticate_with_token!, only: [:new, :show, :user_posts, 
-                                                  :user_posts_solved, :user_posts_not_solved,
-                                                  :all_playable, :all_unplayable
-                                                  ]
+  before_action :authenticate_with_token!, only: [:create, :show_user_photo, :show_all_user_photos]
 
   def create
     @photo = current_user.photos.new( image_url: params[:image_url])
     if @photo.save
-      render 'new.json.jbuilder', status: :ok
+      render 'new.json.jbuilder', status: :created
     else
     render json: { errors: @photo.errors.full_messages },
         status: :unprocessable_entity
@@ -38,7 +35,4 @@ class PhotosController < ApplicationController
         status: :not_found
     end
   end
-
-  end
-
 end

@@ -1,18 +1,11 @@
 class ComicsController < ApplicationController
-  before_action :authenticate_with_token!, only: [:new, :show, :user_posts, 
-                                                  :user_posts_solved, :user_posts_not_solved,
-                                                  :all_playable, :all_unplayable
-                                                  ]
+  before_action :authenticate_with_token!, only: [:create, :show_user_comic, :show_all_user_comics]
 
   def create
-    @comic = current_user.comics.new( comic_url: params[:comic_url])
+    @comic = current_user.comics.new( comic_url: params[:comic_url],
+                                      title: params[:title])
     if @comic.save
-      render 'new.json.jbuilder', status: :ok
-    else
-    render json: { errors: @comic.errors.full_messages },
-        status: :unprocessable_entity
-    end
-  end
+      render 'new.json.jbuilder', status: :created
 
   def show_user_comic
     @comic = current_user.comics.find(params[:title])
@@ -37,8 +30,6 @@ class ComicsController < ApplicationController
       render json: { message: "There are no comics." },
         status: :not_found
     end
-  end
-
   end
 
 end
