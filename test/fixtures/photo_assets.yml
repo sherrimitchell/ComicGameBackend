@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  photo_asset_url: MyString
+  photo_asset_x_position: 1.5
+  photo_asset_y_position: 1.5
+  photo_asset_width: 1.5
+  photo_asset_height: 1.5
+  photo_asset_text: MyString
+
+two:
+  photo_asset_url: MyString
+  photo_asset_x_position: 1.5
+  photo_asset_y_position: 1.5
+  photo_asset_width: 1.5
+  photo_asset_height: 1.5
+  photo_asset_text: MyString
