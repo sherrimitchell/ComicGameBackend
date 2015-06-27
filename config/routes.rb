@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   get 'comics', to: 'comics#index'
 
-  post 'users/register', to: 'users#register'
-
   post 'comics/create', to: 'comics#create'
 
   get 'comics/user', to: 'comics#show_all'
