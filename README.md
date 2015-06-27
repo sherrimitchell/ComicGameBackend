@@ -1,4 +1,4 @@
-# **Comic Game API**
+# **Zero Issue Game API**
 * Ruby version
 __ruby 2.1.5p273__
 
