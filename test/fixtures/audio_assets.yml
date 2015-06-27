@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  audio_asset_url: MyString
+
+two:
+  audio_asset_url: MyString

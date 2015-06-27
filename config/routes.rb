@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+
+  root to: 'comics#index'
+
+  get 'users', to: 'users#index'
+
+  post 'users/register', to: 'users#register'
+
+  post 'users/login', to: 'users#login'
+
+  get 'comics', to: 'comics#index'
+
+  post 'users/register', to: 'users#register'
+
+  post 'comics/create', to: 'comics#create'
+
+  get 'comics/user', to: 'comics#show_all'
+
+  post 'photos/create', to: 'photos#create'
+
+  get 'photos/user', to: 'photos#show_all'
+
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
