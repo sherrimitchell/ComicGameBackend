@@ -5,7 +5,7 @@ class ComicsController < ApplicationController
 
     @comic = current_user.comics.new(comic_url: params[:comic_url],
                                       title: params[:title])
-                                      
+
     if @comic.save
       render 'create.json.jbuilder', status: :created
     else
@@ -16,11 +16,13 @@ class ComicsController < ApplicationController
   end
 
   def show_user_comic
-    @comic = current_user.comics.find(params[:title])
+    binding.pry
+    @comic = current_user.comics.find_by(params[:title])
     render 'show_user.json.jbuilder', status: :ok
   end
 
   def show_all_user_comics
+    binding.pry
     @comics = current_user.comics.order(created_at: :desc).page(params[:page])
     if @comics.any?
       render 'show_all.json.jbuilder', status: :ok
