@@ -4,9 +4,9 @@ class Photo < ActiveRecord::Base
 	has_many :photo_assets
 	has_one :audio_asset
 
-  validates :user_id, presence: true
+  validates :username, presence: true
 
   validates :image_url, presence: true
-  validates :image_url, format: { with: IMAGE_REGEX, 
+  validates :image_url, format: { with: IMAGE_REGEX,
                                   message: "not a valid url for an image"}
 end
