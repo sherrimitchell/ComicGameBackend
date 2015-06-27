@@ -45,13 +45,28 @@ Response:
 
 Example success:  
 ```json
-{ "user":{"id":3,
-  "username":"JDrama2000",
-  "first_name":"Johnny",
-  "last_name":"Drama",
-  "email":"jdrama1@gmail.com",
-  "access_token":"bec50786aa082642fd9757845998f57d"}}
-```
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "jsmith1234",
+      "access_token": "083a050c4b1556c5b8ca68612f2b5c9f",
+      "email": "jsmith@tiy.com"
+    },
+    {
+      "id": 2,
+      "username": "BJohnson1234",
+      "access_token": "c9d85bbde2fde34c1cab0e1995216043",
+      "email": "BJohnson@tiy.com"
+    },
+    {
+      "id": 3,
+      "username": "TMcGraw1234",
+      "access_token": "908ab2d13e18b6d436c2908f83fe9adf",
+      "email": "TMcGraw@tiy.com"
+    }
+  ]
+}```
 Example failure:
 ```json
   {"errors": ["errors":["Email has already been taken"]]}
