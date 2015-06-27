@@ -140,7 +140,7 @@ Example failure:
 
 Params:
   * none
-* Returns scoreboard in json
+* Returns array of comics from all users.
 
 Response:
   Status Code: 201 if successful, 422 if unsuccessful
@@ -159,11 +159,11 @@ Example failure:
 
 ### **Show Comic**
 
-`GET '/posts'`
+`GET 'comic/title'`
 
 Params:
   * none
-  * Returns and array of all posts
+  * Returns the selected comic.
 
 
 Response:
@@ -174,29 +174,12 @@ Example success:
 {
   "post": [
     {
-<<<<<<< Updated upstream
-      "image": "www.photos.com/photos1",
-      "user_id": 1,
-      "answer": "answer",
-      "complete": false
-    },
-    {
-      "image": "www.photos.com/photos2",
-      "user_id": 2,
-      "answer": "answer",
-      "complete": false
-    },
-    {
-      "image": "www.photos.com/photos3",
-      "user_id": 1,
-      "answer": "answer",
-      "complete": false
     },
     {
       "image": "www.photos.com/photos4",
       "user_id": 4,
       "answer": "answer",
-=======
+
       "image": "www.photo.com/photo",
       "user_id": 1,
       "answer": 1,
@@ -218,7 +201,6 @@ Example success:
       "image": "www.photo.com/photo",
       "user_id": 4,
       "answer": 1,
->>>>>>> Stashed changes
       "complete": false
     }
   ]
@@ -232,7 +214,7 @@ Example failure:
 
 ### **Create Comic**
 
-GET '/posts/:id'
+POST '/comics/create'
 
 Params:
   * none
@@ -260,14 +242,12 @@ Example failure:
 
 ### **Get All Of User's Comics**
 
-`POST '/posts'`
+`GET 'comics/user'`
 
 Params:
-  * image: a string
-  * answer: a string
-  * answer_1: a string
-  * answer_2: a string
-  * answer_3: a string
+  * none
+* Retrieves all of a user's commics.
+
 
 
 Response:
@@ -293,7 +273,7 @@ Example failure:
 
 ### **Create Photo**
 
-`DELETE '/posts/:id'`
+`POST 'photos/create'`
 
 Params:
   * none
@@ -315,7 +295,7 @@ Example failure:
 
 ### **Get User Photos**
 
-`POST 'posts/:id/guesses'`
+`GET 'photos/user'`
 
 Params:
   * guess: "string"
@@ -339,7 +319,7 @@ Example failure:
 
 ### **Get A User Photo**
 
-`POST 'posts/:id/guesses'`
+`GET 'photo/:id'`
 
 Params:
   * guess: "string"
@@ -362,7 +342,7 @@ Example failure:
 ```
 ### **Get All Users' Photos**
 
-`POST 'posts/:id/guesses'`
+`GET 'photos/users'`
 
 Params:
   * guess: "string"
