@@ -16,13 +16,13 @@ Rails.application.routes.draw do
 
   get 'comics/user', to: 'comics#show_all_user_comics'
 
-  # post 'photos/create', to: 'photos#create'
-  #
-  # get 'photos/user', to: 'photos#show_all_user_photos'
-  #
-  # get 'photo/:id', to: 'photo#show_user_photo'
-  #
-  # get 'photos/users', to: 'photos#all'
+  post 'photos/create', to: 'photos#create'
+
+  get 'photos/user', to: 'photos#show_all_user_photos'
+
+  get 'photo/:id', to: 'photo#show_user_photo'
+
+  get 'photos/users', to: 'photos#all'
 
 
 
