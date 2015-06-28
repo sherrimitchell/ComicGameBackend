@@ -1,3 +1,3 @@
-json.array! posts do |post|
-  json.partial! 'post', post: post
+json.array! comics do |comic|
+  json.partial! 'comic', comic: comic
 end
