@@ -2,9 +2,10 @@ class PhotosController < ApplicationController
   before_action :authenticate_with_token!, only: [:create, :show_user_photo, :show_all_user_photos]
 
   def create
-    @photo = current_user.photos.new( image_url: params[:image_url])
-    if @photo.save
-      render 'new.json.jbuilder', status: :created
+
+    @photo = Photo.create( image_url: params[:image_url])
+    if @photo
+      render 'create.json.jbuilder', status: :created
     else
     render json: { errors: @photo.errors.full_messages },
         status: :unprocessable_entity
@@ -13,13 +14,19 @@ class PhotosController < ApplicationController
 
   def show_user_photo
     @photo = current_user.photos.find(params[:id])
-    render 'show.json.jbuilder', status: :ok
+    if @photo
+      render 'show_user_photo.json.jbuilder', status: :ok
+    else
+      render json: { message: "This user does not have any photos." },
+        status: :not_found
+    end
   end
 
   def show_all_user_photos
+
     @photos = current_user.photos.order(created_at: :desc).page(params[:page])
     if @photos.any?
-      render 'user_photos.json.jbuilder', status: :ok
+      render 'show_all_user_photos.json.jbuilder', status: :ok
     else
       render json: { message: "This user does not have any photos." },
         status: :not_found

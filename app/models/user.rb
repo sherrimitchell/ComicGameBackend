@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :comics
-
+  has_many :photos
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   validates :password, :access_token, presence: true
